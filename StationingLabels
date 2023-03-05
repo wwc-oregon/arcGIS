@@ -1,0 +1,21 @@
+var Station = $measure+25950
+//$measure gets the length from the route feature
+//If start station is not zero, start station should
+//be added to the $measure to set the start station.
+var ModStation = Station%100
+//ModStation returns the remainder after
+//dividing by 100
+var Start = Text((Station-ModStation)/100,"##.##")
+//Start gets the value before the + sign
+IF(ModStation == 0){
+var End = "00"
+} ELSE {
+var End = Text(ModStation, '##')
+}
+//The function above is required to display 00 if
+//the remainder is 0. Otherwise would only display
+//a single 0 at 100 foot intervals
+var labelStation =""
+labelStation = start + '+' + end
+//This assembles the Start and End text into station
+return labelStation
